@@ -1,5 +1,4 @@
-#from xml.etree.ElementInclude import include
-#from cx_freeze import*
+
 from asyncore import write
 from email.mime import audio
 from multiprocessing.util import is_exiting
@@ -9,13 +8,11 @@ from tkinter import*
 import smtplib
 from tkinter import messagebox
 from numpy import logical_or 
-# from pygame import mixer             
-# import speech_recognition
-# import pyaudio
+
 import smtplib
 #this functionalty for exit button  
 from email.message import EmailMessage
-#includefiles=['','mic.png','email1.png','exit.png','send.png','attach.png','setting.png','attach.png','clear.png','music.wav','file.png']
+
 import tkinter
 import customtkinter
 customtkinter.set_appearance_mode("dark")
@@ -109,23 +106,7 @@ def clear():
     subjectEntryFeild.delete(0,END)
     
     textarea.delete(1.0,END)
-    
-#this functionality  for speak button 
-# def speak():
-#    mixer.init() 
-#    mixer.music.load('music.wav') 
-#    mixer.music.play()  
-#    sr=speech_recognition.Recognizer()
-#    with speech_recognition.Microphone() as m:
-#        try:
-#            sr.adjust_for_ambient_noise(m,duration=0.2)
-#            sr.listen(m)
-#            audio=sr.listen(m)
-#            text=sr.recognize_google(audio)
-#            textarea.insert(END,text+'.')
-#        except:
-#            pass
-#project by aman poddar
+
 root=Tk()   #make an object
 root.title("E-mail sender app by aman poddar") #i set title bar 
 root.geometry('800x700')  #set length and weidth for app
@@ -146,10 +127,7 @@ chooseFrame.grid(row=1,column=0,pady=10)
 #this is for add radio button for selecting sigle or multiple button
 choice=StringVar()
 
-"""singleRadioButton=Radiobutton(chooseFrame,text='Single',font=('times new roman',25,'bold'),variable=choice,value='single',bg='red',activebackground='red')
-singleRadioButton.grid(row=0,column=0,padx=20)"""
-"""multipleRadioButton=Radiobutton(chooseFrame,text='Multiple',font=('times new roman',25,'bold'),variable=choice,value='multiple',bg='red',activebackground='red')
-multipleRadioButton.grid(row=0,column=2,padx=20)"""
+
 
 choice.set('single') 
 #this code for add browse  button 
@@ -159,10 +137,7 @@ tolabelFrame.grid(row=2,column='0',padx=100)
 toEntryFeild=Entry(tolabelFrame,font=('times new roman',18,'bold'),width=30) 
 toEntryFeild.grid(row=0,column='0') 
 
-"""browseImage=PhotoImage(file='file.png')
 
-Button(tolabelFrame,text='  Browse',image=browseImage,compound=LEFT,font=('arial',12,'bold'),cursor='hand2',bd=0,bg='skyblue',activebackground='red').grid(row=0,column=1,padx=20)          
-#here,i add subject column"""
 subjectLabelFrame=LabelFrame(root,text='Subject',font=('times new roman',16,'bold'),bd=5,fg='white',bg='red')
 subjectLabelFrame.grid(row=3,column=0,pady=10)
 
@@ -173,12 +148,7 @@ subjectEntryFeild.grid(row=0,column='0')
 emaillabelFrame=LabelFrame(root,text='Compose E-mail ',font=('times new roman',16,'bold'),bd=10,fg='white',bg='red')
 emaillabelFrame.grid(row=4,column=0,padx=20) 
 
-"""micImage=PhotoImage(file='mic.png')
-Button(emaillabelFrame,text='  Speak',image=micImage,compound=LEFT,font=('arial',12,'bold'),cursor='hand2',bd=0,bg='red',activebackground='red',command=speak).grid(row=0,column=0)          
-"""
-"""attachImage=PhotoImage(file='attach.png')    
-Button(emaillabelFrame,text='  Attachment',image=attachImage,compound=LEFT,font=('arial',12,'bold'),cursor='hand2',bd=0,bg='red',activebackground='red').grid(row=0,column=1)          
-"""
+
 textarea=Text(emaillabelFrame,font=('times new roman',14,),height=7)
 textarea.grid(row=1,column=0,columnspan=2)
  
@@ -190,19 +160,6 @@ Button(root,image=clearImage,bd=10,bg='black',cursor='hand2',activebackground="w
 #refresh icon add here
 exit=PhotoImage(file='exit.png')     #this is for add  icon 
 Button(root,image=exit,bd=10,bg='black',cursor='hand2',activebackground="white",command=iexit).place(x=550,y=550)
-#total mail sent label
-"""totalLabel=Label(root,font=('times new roman',18,'bold'),bg='black',fg='black')
-totalLabel.place(x=10,y=560)
-#sent label
-sentLabel=Label(root,font=('times new roman',18,'bold'),bg='black',fg='black')
-sentLabel.place(x=100,y=560)
-#left label
-leftLabel=Label(root,font=('times new roman',18,'bold'),bg='black',fg='black')
-leftLabel.place(x=190,y=560)
-#failed label
-failedLabel=Label(root,font=('times new roman',18,'bold'),bg='black',fg='black')
-failedLabel.place(x=280,y=560)"""
-
 
 root.mainloop() 
  
